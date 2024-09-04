@@ -20,6 +20,7 @@ class TweetsController < ApplicationController
     return unless tweet.user_id == current_user.user_id
 
     tweet.destroy
+    redirect_to '/'
   end
 
   def edit; end
