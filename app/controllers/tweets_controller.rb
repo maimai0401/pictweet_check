@@ -1,6 +1,6 @@
 class TweetsController < ApplicationController
-  before_action :set_tweet, only: [:edit ,:show]
-  before_action :move_to_index,except: :index
+  before_action :set_tweet, only: %i[edit show]
+  before_action :move_to_index, except: :index
 
   def index
     @tweets = Tweet.includes(:user).order('created_at DESC')
@@ -17,9 +17,10 @@ class TweetsController < ApplicationController
 
   def destroy
     tweet = Tweet.find(id: params[:id])
-    if tweet.user_id == current_user.user_id
-      tweet.destroy
-    end
+    return unless tweet.user_id == current_user.user_id
+
+    tweet.destroy
+    redirect_to '/'
   end
 
   def edit; end
@@ -42,7 +43,7 @@ class TweetsController < ApplicationController
   private
 
   def tweet_params
-    params.require(:tweet).permit(:image, :content).merge(user_id: current_user.id)
+    params.require(:tweet).permit(:text).merge(user_id: current_user.id)
   end
 
   def set_tweet
