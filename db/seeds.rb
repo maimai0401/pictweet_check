@@ -1,5 +1,5 @@
 test_user_1 = User.create(nickname: '太郎', email: 'taro@taro', password: 'tarotaro')
-# test_user_2 = User.create(nickname: '花子', email: 'hanako@hanako', password: 'hanakohanako')
+test_user_2 = User.create(nickname: '花子', email: 'hanako@hanako', password: 'hanakohanako')
 
 tweet_1 = Tweet.new(
   text: 'かわいい犬',
@@ -15,7 +15,7 @@ tweet_2 = Tweet.new(
   user_id: 2
 )
 # item_1.image.attach(io: File.open(Rails.root.join('./app/assets/images/smartphone.png')), filename: 'smartphone.png')
-tweet_2.save
+tweet_2.save(validate: false)
 
 tweet_3 = Tweet.new(
   text: '猫もいる',
@@ -23,7 +23,7 @@ tweet_3 = Tweet.new(
   user_id: 3
 )
 # item_1.image.attach(io: File.open(Rails.root.join('./app/assets/images/smartphone.png')), filename: 'smartphone.png')
-tweet_3.save
+tweet_3.save(validate: false)
 
 tweet_4 = Tweet.new(
   text: '白い犬',
@@ -31,7 +31,7 @@ tweet_4 = Tweet.new(
   user_id: 4
 )
 # item_1.image.attach(io: File.open(Rails.root.join('./app/assets/images/smartphone.png')), filename: 'smartphone.png')
-tweet_4.save
+tweet_4.save(validate: false)
 
 tweet_5 = Tweet.new(
   text: '足が長い犬',
@@ -39,12 +39,12 @@ tweet_5 = Tweet.new(
   user_id: 5
 )
 # item_1.image.attach(io: File.open(Rails.root.join('./app/assets/images/smartphone.png')), filename: 'smartphone.png')
-tweet_5.save
+tweet_5.save(validate: false)
 
 tweet_6 = Tweet.new(
   text: '強き犬',
-  image: 'https://publicdomainq.net/images/201705/25s/publicdomainq-0009416tlp.jpg',
+  image: 'https://www.nihonpet.co.jp/dog/img/siberianhusky07.jpg',
   user_id: 6
 )
 # item_1.image.attach(io: File.open(Rails.root.join('./app/assets/images/smartphone.png')), filename: 'smartphone.png')
-tweet_6.save
+tweet_6.save(validate: false)
